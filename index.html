@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiseAiTechs — Custom Software for Doctors & Clinics</title>
+    <meta name="description" content="WiseAiTechs builds custom software for doctors and clinics. Starting at ₹5,000. Personal, practical tools built for your practice.">
+    <meta property="og:title" content="WiseAiTechs — Custom Software for Doctors & Clinics">
+    <meta property="og:description" content="Custom AI-powered tools for your practice. Starting at ₹5,000.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --wise-blue: #243E8F;
+            --wise-blue-dark: #1D3273;
+            --wise-red: #D61F4B;
+            --wise-red-hover: #E8445F;
+            --deep-navy: #101828;
+            --slate-gray: #475467;
+            --light-gray: #EAECF0;
+            --soft-bg: #F8FAFC;
+            --ai-glow: #3B82F6;
+            --system-cyan: #06B6D4;
+            --success: #16A34A;
+            --text-primary: #101828;
+            --text-secondary: #475467;
+            --text-weak: #667085;
+            --text-inverse: #FFFFFF;
+            --border-light: #EAECF0;
+            --border-medium: #D0D5DD;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 12px rgba(16,24,40,0.06), 0 1px 3px rgba(16,24,40,0.04);
+            --shadow-lg: 0 10px 30px rgba(16,24,40,0.07);
+            --shadow-blue: 0 1px 3px rgba(36,62,143,0.12), 0 1px 2px rgba(36,62,143,0.08);
+            --shadow-glow: 0 8px 30px rgba(59,130,246,0.22);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 28px;
+            --radius-pill: 999px;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: 150ms var(--ease);
+            --transition-base: 250ms var(--ease);
+            --max-width: 1280px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body { font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--text-primary); background: var(--text-inverse); line-height: 1.6; overflow-x: hidden; }
+        ::selection { background: rgba(36,62,143,0.15); color: var(--wise-blue); }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; font-family: inherit; border: none; background: none; }
+        input, select, textarea { font-family: inherit; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+        .display-xl { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+        .display-lg { font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+        .heading-lg { font-size: clamp(24px, 3vw, 40px); font-weight: 700; line-height: 1.2; letter-spacing: 0.01em; }
+        .heading-md { font-size: clamp(20px, 2vw, 28px); font-weight: 700; line-height: 1.25; letter-spacing: 0.01em; }
+        .heading-sm { font-size: 20px; font-weight: 600; line-height: 1.35; letter-spacing: 0.02em; }
+        .body-lg { font-size: 18px; font-weight: 400; line-height: 1.7; letter-spacing: 0.02em; color: var(--text-secondary); }
+        .body-md { font-size: 16px; font-weight: 400; line-height: 1.7; letter-spacing: 0.02em; color: var(--text-secondary); }
+        .body-sm { font-size: 14px; font-weight: 500; line-height: 1.6; letter-spacing: 0.03em; color: var(--text-weak); }
+        .text-accent { color: var(--wise-red); }
+        .text-blue { color: var(--wise-blue); }
+        .text-inverse { color: var(--text-inverse); }
+
+        /* BUTTONS */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; font-weight: 600; letter-spacing: 0.03em; border-radius: var(--radius-pill); padding: 13px 28px; transition: all 220ms var(--ease); position: relative; white-space: nowrap; }
+        .btn-primary { background: var(--wise-blue); color: var(--text-inverse); border: 2px solid transparent; }
+        .btn-primary:hover { background: var(--ai-glow); border-color: var(--text-inverse); box-shadow: 0 0 0 2px var(--wise-blue); transform: scale(1.06); }
+        .btn-primary:active { opacity: 0.75; transform: scale(1.02); }
+        .btn-red { background: var(--wise-red); color: var(--text-inverse); border: 2px solid transparent; }
+        .btn-red:hover { background: var(--wise-red-hover); border-color: var(--text-inverse); box-shadow: 0 0 0 2px var(--wise-red); transform: scale(1.06); }
+        .btn-red:active { opacity: 0.75; transform: scale(1.02); }
+        .btn-outline { background: transparent; color: var(--text-inverse); border: 2px solid rgba(255,255,255,0.3); }
+        .btn-outline:hover { background: var(--ai-glow); border-color: var(--text-inverse); box-shadow: 0 0 0 2px var(--wise-blue); transform: scale(1.06); }
+        .btn-outline-light { background: var(--text-inverse); color: var(--wise-blue); border: 1px solid var(--border-medium); }
+        .btn-outline-light:hover { background: var(--soft-bg); border-color: var(--wise-blue); box-shadow: var(--shadow-blue); transform: scale(1.06); }
+        .btn-whatsapp { background: #25D366; color: #fff; border: 2px solid transparent; }
+        .btn-whatsapp:hover { background: #1ebe5d; border-color: #fff; box-shadow: 0 0 0 2px #25D366; transform: scale(1.06); }
+        .btn-sm { font-size: 13px; padding: 9px 20px; font-weight: 600; letter-spacing: 0.04em; }
+        .btn-lg { font-size: 17px; padding: 16px 36px; }
+
+        /* NAVIGATION */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(16,24,40,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06); transition: background var(--transition-base); }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; }
+        .nav-logo-img { height: 44px; width: auto; object-fit: contain; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; transition: color var(--transition-fast); position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--wise-blue); transition: width var(--transition-base); }
+        .nav-links a:hover { color: var(--text-inverse); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta { margin-left: 8px; }
+        .nav-mobile-toggle { display: none; color: var(--text-inverse); padding: 8px; }
+
+        .mobile-drawer { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: rgba(16,24,40,0.98); backdrop-filter: blur(20px); z-index: 999; padding: 32px 24px; flex-direction: column; gap: 8px; opacity: 0; transform: translateY(-10px); transition: opacity var(--transition-base), transform var(--transition-base); pointer-events: none; overflow-y: auto; }
+        .mobile-drawer.open { opacity: 1; transform: translateY(0); pointer-events: all; }
+        .mobile-drawer a { display: block; padding: 14px 0; font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.8); border-bottom: 1px solid rgba(255,255,255,0.06); transition: color var(--transition-fast); }
+        .mobile-drawer a:hover { color: var(--text-inverse); }
+        .mobile-drawer .btn { margin-top: 24px; text-align: center; }
+
+        /* HERO */
+        .hero { background: linear-gradient(170deg, #101828 0%, #1a2744 40%, #243E8F 100%); padding: 140px 0 80px; position: relative; overflow: hidden; min-height: 95vh; display: flex; align-items: center; }
+        #neuralCanvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .hero-content { position: relative; z-index: 2; max-width: 720px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-pill); padding: 6px 16px 6px 8px; margin-bottom: 28px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; }
+        .hero-badge-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse-dot 2s ease-in-out infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+        .hero h1 { color: var(--text-inverse); margin-bottom: 24px; }
+        .hero .body-lg { color: rgba(255,255,255,0.65); max-width: 560px; margin-bottom: 40px; }
+        .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+        .hero-note { margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; display: flex; align-items: center; gap: 6px; }
+        .hero-logo-glass { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); width: 300px; height: 300px; border-radius: 50%; overflow: hidden; opacity: 0.12; z-index: 1; pointer-events: none; }
+        .hero-logo-glass img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* TRUST BAR */
+        .trust-bar { background: var(--text-inverse); border-bottom: 1px solid var(--border-light); padding: 28px 0; }
+        .trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 12px; }
+        .trust-icon { width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--soft-bg); display: flex; align-items: center; justify-content: center; color: var(--wise-blue); flex-shrink: 0; }
+        .trust-value { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+        .trust-label { font-size: 12px; font-weight: 500; color: var(--text-weak); letter-spacing: 0.04em; }
+        .trust-divider { width: 1px; height: 36px; background: var(--border-light); }
+
+        /* SECTIONS */
+        .section-white { background: var(--text-inverse); padding: 96px 0; }
+        .section-gray { background: var(--soft-bg); padding: 96px 0; }
+        .section-dark { background: linear-gradient(170deg, #101828 0%, #1a2744 100%); padding: 96px 0; }
+        .section-header { text-align: center; max-width: 660px; margin: 0 auto 56px; }
+        .section-header .body-md { margin-top: 16px; }
+        .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wise-blue); margin-bottom: 16px; }
+        .section-label-dark { color: var(--ai-glow); }
+        .section-label::before { content: ''; width: 20px; height: 2px; background: currentColor; border-radius: 1px; }
+
+        /* WHY US */
+        .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .why-card { background: var(--text-inverse); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 36px 32px; transition: all var(--transition-base); position: relative; overflow: hidden; }
+        .why-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--wise-blue), var(--wise-red)); opacity: 0; transition: opacity var(--transition-base); }
+        .why-card:hover { border-color: rgba(36,62,143,0.2); box-shadow: var(--shadow-blue); transform: translateY(-3px); }
+        .why-card:hover::before { opacity: 1; }
+        .why-icon { width: 48px; height: 48px; border-radius: var(--radius-lg); background: linear-gradient(135deg, rgba(36,62,143,0.08), rgba(36,62,143,0.03)); display: flex; align-items: center; justify-content: center; color: var(--wise-blue); margin-bottom: 20px; }
+        .why-card h3 { margin-bottom: 12px; }
+        .why-card p { font-size: 15px; line-height: 1.7; color: var(--text-secondary); letter-spacing: 0.02em; }
+
+        /* ROLE DISCOVERY */
+        .role-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; }
+        .role-chip { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: var(--text-inverse); border: 1.5px solid var(--border-light); border-radius: var(--radius-lg); font-size: 14px; font-weight: 500; color: var(--text-secondary); transition: all var(--transition-base); cursor: pointer; user-select: none; }
+        .role-chip:hover { border-color: var(--wise-blue); color: var(--wise-blue); background: rgba(36,62,143,0.03); }
+        .role-chip.active { border-color: var(--wise-blue); background: var(--wise-blue); color: var(--text-inverse); }
+        .role-chip.active i { color: rgba(255,255,255,0.9); }
+        .role-chip i { width: 18px; height: 18px; flex-shrink: 0; }
+        .role-results { background: var(--text-inverse); border: 1.5px solid var(--border-light); border-radius: var(--radius-2xl); max-height: 0; overflow: hidden; transition: all 0.5s var(--ease); opacity: 0; }
+        .role-results.open { max-height: 800px; padding: 40px; opacity: 1; margin-top: 8px; }
+        .role-results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+        .role-results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .role-tool-card { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--soft-bg); border-radius: var(--radius-lg); border: 1px solid transparent; transition: all var(--transition-base); }
+        .role-tool-card:hover { border-color: var(--border-medium); box-shadow: var(--shadow-sm); }
+        .role-tool-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--wise-blue); display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+        .role-tool-title { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+        .role-tool-desc { font-size: 12px; color: var(--text-weak); line-height: 1.5; margin-top: 2px; }
+        .role-tool-cost { font-size: 11px; font-weight: 600; color: var(--wise-blue); margin-top: 4px; }
+
+        /* HOW IT WORKS */
+        .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+        .steps-grid::before { content: ''; position: absolute; top: 36px; left: calc(16.66% + 24px); right: calc(16.66% + 24px); height: 2px; background: linear-gradient(90deg, var(--border-light), var(--wise-blue), var(--border-light)); opacity: 0.5; }
+        .step-card { text-align: center; position: relative; z-index: 1; }
+        .step-number { width: 72px; height: 72px; border-radius: 50%; background: var(--text-inverse); border: 2px solid var(--border-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 24px; font-weight: 800; color: var(--wise-blue); transition: all var(--transition-base); box-shadow: var(--shadow-md); }
+        .step-card:hover .step-number { background: var(--wise-blue); color: var(--text-inverse); border-color: var(--wise-blue); box-shadow: var(--shadow-glow); transform: scale(1.08); }
+        .step-card h3 { margin-bottom: 10px; }
+        .step-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; max-width: 300px; margin: 0 auto; }
+
+        /* BUILD GRID */
+        .build-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .build-card { background: var(--text-inverse); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 28px 24px; display: flex; align-items: flex-start; gap: 16px; transition: all var(--transition-base); cursor: default; }
+        .build-card:hover { border-color: rgba(36,62,143,0.18); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .build-card-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--soft-bg); display: flex; align-items: center; justify-content: center; color: var(--wise-blue); flex-shrink: 0; transition: all var(--transition-base); }
+        .build-card:hover .build-card-icon { background: var(--wise-blue); color: var(--text-inverse); }
+        .build-card-title { font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+        .build-card-desc { font-size: 13px; color: var(--text-weak); line-height: 1.5; margin-top: 4px; }
+
+        /* COST CALCULATOR */
+        .calc-wrapper { max-width: 720px; margin: 0 auto; }
+        .calc-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-2xl); padding: 44px; }
+        .calc-sliders { display: flex; flex-direction: column; gap: 32px; margin-bottom: 40px; }
+        .calc-slider-group label { display: flex; align-items: center; justify-content: space-between; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); letter-spacing: 0.03em; margin-bottom: 12px; }
+        .calc-slider-value { color: var(--ai-glow); font-weight: 700; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; outline: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--ai-glow); border: 3px solid var(--text-inverse); box-shadow: 0 0 0 2px var(--ai-glow), 0 2px 8px rgba(0,0,0,0.3); cursor: grab; transition: transform 0.15s ease; }
+        input[type="range"]::-webkit-slider-thumb:active { transform: scale(1.15); cursor: grabbing; }
+        input[type="range"]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--ai-glow); border: 3px solid var(--text-inverse); box-shadow: 0 0 0 2px var(--ai-glow), 0 2px 8px rgba(0,0,0,0.3); cursor: grab; }
+        .calc-result { text-align: center; padding: 32px; background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.15); border-radius: var(--radius-xl); }
+        .calc-result-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+        .calc-result-range { font-size: 42px; font-weight: 800; color: var(--text-inverse); letter-spacing: -0.02em; }
+        .calc-result-range .cur { font-size: 24px; font-weight: 600; opacity: 0.6; }
+        .calc-result-time { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 8px; }
+        .calc-result-time strong { color: rgba(255,255,255,0.8); }
+        .calc-result-note { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 16px; }
+
+        /* TESTIMONIALS */
+        .testi-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 4px 0 20px; scrollbar-width: none; }
+        .testi-track::-webkit-scrollbar { display: none; }
+        .testi-card { flex: 0 0 380px; scroll-snap-align: start; background: var(--text-inverse); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 32px; display: flex; flex-direction: column; gap: 16px; transition: box-shadow var(--transition-base); }
+        .testi-card:hover { box-shadow: var(--shadow-md); }
+        .testi-stars { display: flex; gap: 2px; color: #F59E0B; }
+        .testi-text { font-size: 15px; line-height: 1.7; color: var(--text-secondary); flex: 1; }
+        .testi-author { display: flex; align-items: center; gap: 12px; }
+        .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--wise-blue), var(--wise-red)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+        .testi-name { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .testi-role { font-size: 12px; color: var(--text-weak); }
+
+        /* CASE STUDIES */
+        .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .case-card { background: var(--text-inverse); border: 1px solid var(--border-light); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition-base); }
+        .case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        .case-img { width: 100%; height: 200px; object-fit: cover; background: linear-gradient(135deg, #e8edf5, #f0f4fa); }
+        .case-body { padding: 24px; }
+        .case-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wise-blue); background: rgba(36,62,143,0.06); padding: 4px 10px; border-radius: var(--radius-pill); margin-bottom: 12px; }
+        .case-title { font-size: 17px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.35; }
+        .case-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+        .case-meta { display: flex; align-items: center; justify-content: space-between; }
+        .case-cost { font-size: 14px; font-weight: 700; color: var(--wise-blue); }
+        .case-time { font-size: 12px; color: var(--text-weak); }
+
+        /* FORM */
+        .form-section { padding: 96px 0; background: var(--text-inverse); }
+        .form-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; }
+        .form-info { position: sticky; top: 100px; }
+        .form-info h2 { margin-bottom: 20px; }
+        .form-info .body-lg { margin-bottom: 32px; }
+        .form-benefits { display: flex; flex-direction: column; gap: 16px; }
+        .form-benefit { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: var(--text-secondary); line-height: 1.5; }
+        .form-benefit-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(22,163,74,0.08); display: flex; align-items: center; justify-content: center; color: var(--success); flex-shrink: 0; }
+        .form-card { background: var(--text-inverse); border: 1px solid var(--border-light); border-radius: var(--radius-2xl); padding: 40px; box-shadow: var(--shadow-lg); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-size: 13px; font-weight: 600; color: var(--text-primary); letter-spacing: 0.04em; margin-bottom: 8px; }
+        .form-label .optional { font-weight: 400; color: var(--text-weak); }
+        .form-input, .form-select, .form-textarea { width: 100%; background: var(--soft-bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-md); padding: 12px 16px; font-size: 15px; color: var(--text-primary); transition: all var(--transition-fast); }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--wise-blue); box-shadow: 0 0 0 3px rgba(36,62,143,0.1); background: var(--text-inverse); }
+        .form-input.error, .form-select.error, .form-textarea.error { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.08); }
+        .form-input::placeholder, .form-textarea::placeholder { color: var(--text-weak); }
+        .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23667085' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+        .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+        .form-error { font-size: 12px; color: #DC2626; margin-top: 6px; display: none; align-items: center; gap: 4px; }
+        .form-error.visible { display: flex; }
+        .form-divider { height: 1px; background: var(--border-light); margin: 28px 0; }
+        .form-section-title { font-size: 14px; font-weight: 600; color: var(--wise-blue); letter-spacing: 0.04em; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+        .form-submit-area { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+        .form-privacy { font-size: 12px; color: var(--text-weak); max-width: 240px; line-height: 1.5; }
+
+        /* PAIN CHIPS */
+        .pain-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+        .pain-chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: var(--soft-bg); border: 1.5px solid var(--border-light); border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; color: var(--text-secondary); transition: all var(--transition-fast); cursor: pointer; user-select: none; }
+        .pain-chip:hover { border-color: var(--wise-blue); color: var(--wise-blue); }
+        .pain-chip.active { background: var(--wise-blue); border-color: var(--wise-blue); color: #fff; }
+
+        .form-success { display: none; text-align: center; padding: 60px 40px; }
+        .form-success.visible { display: block; }
+        .form-success-icon { width: 72px; height: 72px; border-radius: 50%; background: rgba(22,163,74,0.08); display: flex; align-items: center; justify-content: center; color: var(--success); margin: 0 auto 24px; }
+        .form-success h3 { margin-bottom: 12px; }
+        .form-success p { font-size: 15px; color: var(--text-secondary); max-width: 400px; margin: 0 auto; line-height: 1.7; }
+
+        /* CTA BANNER */
+        .cta-banner { background: linear-gradient(135deg, var(--wise-blue) 0%, #1a2744 50%, #101828 100%); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+        .cta-banner::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 32px 32px; }
+        .cta-banner h2 { color: var(--text-inverse); position: relative; z-index: 1; margin-bottom: 16px; }
+        .cta-banner .body-lg { color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto 36px; position: relative; z-index: 1; }
+        .cta-banner .btn { position: relative; z-index: 1; }
+
+        /* FOOTER */
+        .footer { background: var(--deep-navy); padding: 56px 0 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+        .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.7; margin-top: 16px; max-width: 300px; }
+        .footer-socials { display: flex; gap: 12px; margin-top: 20px; }
+        .footer-social { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); transition: all var(--transition-fast); }
+        .footer-social:hover { background: var(--wise-blue); color: #fff; }
+        .footer-col h4 { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .footer-col a { font-size: 14px; color: rgba(255,255,255,0.4); transition: color var(--transition-fast); }
+        .footer-col a:hover { color: rgba(255,255,255,0.85); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+        /* FLOATING CTA */
+        #floatingCTA { display: none; position: fixed; bottom: 24px; right: 24px; z-index: 900; box-shadow: 0 8px 30px rgba(214,31,75,0.35); }
+
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-logo-glass { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .role-grid { grid-template-columns: repeat(3, 1fr); }
+            .role-results-grid { grid-template-columns: 1fr; }
+            .form-layout { grid-template-columns: 1fr; gap: 40px; }
+            .form-info { position: static; }
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .case-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .mobile-drawer { display: flex; }
+            .hero { padding: 120px 0 60px; min-height: auto; }
+            .section-white, .section-gray, .section-dark, .form-section { padding: 64px 0; }
+            .steps-grid { grid-template-columns: 1fr; gap: 40px; }
+            .steps-grid::before { display: none; }
+            .build-grid { grid-template-columns: 1fr 1fr; }
+            .role-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-row { grid-template-columns: 1fr; }
+            .form-card { padding: 28px 20px; }
+            .form-submit-area { flex-direction: column; align-items: stretch; }
+            .form-privacy { max-width: 100%; text-align: center; }
+            .trust-bar-inner { gap: 24px; }
+            .trust-divider { display: none; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .cta-banner { padding: 56px 0; }
+            .case-grid { grid-template-columns: 1fr; }
+            .testi-card { flex: 0 0 320px; }
+            .calc-card { padding: 28px 20px; }
+            #floatingCTA { display: inline-flex !important; }
+        }
+        @media (max-width: 480px) {
+            .build-grid { grid-template-columns: 1fr; }
+            .role-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-actions .btn { justify-content: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container nav-inner">
+            <a href="#" class="nav-brand" aria-label="WiseAiTechs Home">
+                <img src="https://z-cdn-media.chatglm.cn/files/14fa7e12-535c-4da4-a463-5941a38ffbe2.png?auth_key=1883273646-6d2085e5e3eb46d8ba79e595098f8ff0-0-360b010d2ecc7d4201868afd03a9ba8b" alt="WiseAiTechs Logo" class="nav-logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#find-tool">Find Your Tool</a></li>
+                <li><a href="#how-it-works">Process</a></li>
+                <li><a href="#calculator">Pricing</a></li>
+                <li><a href="#cases">Case Studies</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="https://wa.me/918547913751" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="Open menu" id="menuToggle">
+                <i data-lucide="menu" style="width:24px;height:24px;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-label="Mobile navigation">
+        <a href="#why-us" class="mobile-link">Why Us</a>
+        <a href="#find-tool" class="mobile-link">Find Your Tool</a>
+        <a href="#how-it-works" class="mobile-link">Process</a>
+        <a href="#calculator" class="mobile-link">Pricing</a>
+        <a href="#cases" class="mobile-link">Case Studies</a>
+        <a href="#form" class="btn btn-red mobile-link" style="border-radius:var(--radius-pill);text-align:center;">Submit Your Project</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+        <div class="hero-logo-glass" aria-hidden="true">
+            <img src="https://z-cdn-media.chatglm.cn/files/a3a9e8e7-6db6-4917-82b0-d46b49eb3a49.png?auth_key=1883273646-ace4eda989f44a26a15116bf3bd9faed-0-eb37e5ac69c9f779a3f38c0f9f6a7af" alt="">
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge reveal">
+                <span class="hero-badge-dot"></span>
+                Now accepting projects for 2026-27
+            </div>
+            <h1 class="display-xl reveal reveal-delay-1">
+                Not sure what<br>software you need?<br>
+                <span class="text-accent">We'll figure it out.</span>
+            </h1>
+            <p class="body-lg reveal reveal-delay-2">
+                You're a doctor, not a tech expert. Tell us your specialization and what frustrates you — we'll identify the right tool, build it, and deliver it. Starting at <strong style="color:rgba(255,255,255,0.85);">₹5,000</strong>.
+            </p>
+            <div class="hero-actions reveal reveal-delay-3">
+                <a href="#find-tool" class="btn btn-red btn-lg">
+                    Find My Tool
+                    <i data-lucide="search" style="width:18px;height:18px;"></i>
+                </a>
+                <a href="https://wa.me/918547913751" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Chat on WhatsApp
+                </a>
+            </div>
+            <p class="hero-note reveal reveal-delay-4">
+                <i data-lucide="shield-check" style="width:14px;height:14px;"></i>
+                No upfront payment required. We discuss first, you decide.(Payment At Start of Making)
+            </p>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner">
+                <div class="trust-item reveal"><div class="trust-icon"><i data-lucide="layers" style="width:18px;height:18px;"></i></div><div><div class="trust-value">50+</div><div class="trust-label">Projects Delivered</div></div></div>
+                <div class="trust-divider"></div>
+                <div class="trust-item reveal reveal-delay-1"><div class="trust-icon"><i data-lucide="stethoscope" style="width:18px;height:18px;"></i></div><div><div class="trust-value">12+</div><div class="trust-label">Specializations</div></div></div>
+                <div class="trust-divider"></div>
+                <div class="trust-item reveal reveal-delay-2"><div class="trust-icon"><i data-lucide="indian-rupee" style="width:18px;height:18px;"></i></div><div><div class="trust-value">₹5,000</div><div class="trust-label">Starting Price</div></div></div>
+                <div class="trust-divider"></div>
+                <div class="trust-item reveal reveal-delay-3"><div class="trust-icon"><i data-lucide="clock" style="width:18px;height:18px;"></i></div><div><div class="trust-value">1 Month</div><div class="trust-label">Min. Delivery</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section-white" id="why-us">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Why WiseAiTechs</div>
+                <h2 class="heading-lg">We are not an IT company.<br>We are the one who <span class="text-accent">knows you</span>.</h2>
+                <p class="body-md">Big teams sell you systems built for hospitals with 200 beds. We build the tool that fits your single clinic, your specific workflow, your actual Monday morning.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal"><div class="why-icon"><i data-lucide="heart-pulse" style="width:24px;height:24px;"></i></div><h3 class="heading-sm">We Know Your Practice</h3><p>Unlike big IT firms, we understand clinic workflows, patient management, and medical communication. We don't need a 3-month discovery phase — we speak your language.</p></div>
+                <div class="why-card reveal reveal-delay-1"><div class="why-icon"><i data-lucide="trending-down" style="width:24px;height:24px;"></i></div><h3 class="heading-sm">No Enterprise Overhead</h3><p>You're not paying for floor 17 of a corporate tower. You're paying for the tool that solves your specific problem. That's why we start at ₹5,000, not ₹5,00,000.</p></div>
+                <div class="why-card reveal reveal-delay-2"><div class="why-icon"><i data-lucide="puzzle" style="width:24px;height:24px;"></i></div><h3 class="heading-sm">Built to Fit, Not to Impress</h3><p>We don't sell you a massive system and hope you figure it out. We build exactly what you described, test it with your workflow, and deliver something that works from day one.</p></div>
+                <div class="why-card reveal reveal-delay-3"><div class="why-icon"><i data-lucide="sparkles" style="width:24px;height:24px;"></i></div><h3 class="heading-sm">AI When It Makes Sense</h3><p>Not every project needs AI. We use it where it genuinely helps — smarter scheduling, pattern recognition, automation — and skip it where a simple solution works better.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIND YOUR TOOL -->
+    <section class="section-gray" id="find-tool">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Don't Know What You Need?</div>
+                <h2 class="heading-lg">Pick your role. We'll suggest<br>the <span class="text-accent">right tools</span>.</h2>
+                <p class="body-md">Most doctors who come to us don't know the technical name of what they need — and that's perfectly fine. Select your specialization below.</p>
+            </div>
+            <div class="role-grid reveal" id="roleGrid">
+                <div class="role-chip" data-role="general"><i data-lucide="user" style="width:18px;height:18px;"></i>General Medicine</div>
+                <div class="role-chip" data-role="dental"><i data-lucide="smile" style="width:18px;height:18px;"></i>Dentist</div>
+                <div class="role-chip" data-role="derma"><i data-lucide="scan" style="width:18px;height:18px;"></i>Dermatologist</div>
+                <div class="role-chip" data-role="ortho"><i data-lucide="bone" style="width:18px;height:18px;"></i>Orthopedic</div>
+                <div class="role-chip" data-role="pediatric"><i data-lucide="baby" style="width:18px;height:18px;"></i>Pediatrician</div>
+                <div class="role-chip" data-role="gynac"><i data-lucide="heart" style="width:18px;height:18px;"></i>Gynecologist</div>
+                <div class="role-chip" data-role="ophthal"><i data-lucide="eye" style="width:18px;height:18px;"></i>Ophthalmologist</div>
+                <div class="role-chip" data-role="ent"><i data-lucide="ear" style="width:18px;height:18px;"></i>ENT</div>
+                <div class="role-chip" data-role="cardio"><i data-lucide="activity" style="width:18px;height:18px;"></i>Cardiologist</div>
+                <div class="role-chip" data-role="neuro"><i data-lucide="brain" style="width:18px;height:18px;"></i>Neurologist</div>
+                <div class="role-chip" data-role="psych"><i data-lucide="message-circle" style="width:18px;height:18px;"></i>Psychiatrist</div>
+                <div class="role-chip" data-role="ayurveda"><i data-lucide="leaf" style="width:18px;height:18px;"></i>Ayurveda / Homeopathy</div>
+            </div>
+            <div class="role-results" id="roleResults">
+                <div class="role-results-header">
+                    <div>
+                        <h3 class="heading-sm" id="roleResultsTitle">Recommended Tools</h3>
+                        <p class="body-sm" id="roleResultsSub" style="margin-top:4px;"></p>
+                    </div>
+                    <a href="#form" class="btn btn-primary btn-sm">I Want One of These</a>
+                </div>
+                <div class="role-results-grid" id="roleResultsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-white" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">How It Works</div>
+                <h2 class="heading-lg">Three steps. No runaround.</h2>
+                <p class="body-md">From your idea to a working tool — without the corporate theatre.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card reveal"><div class="step-number">1</div><h3 class="heading-sm">Describe Your Need</h3><p>Fill out our project form. Tell us your specialization, what's slowing you down, and what you wish existed. Don't worry about technical terms.</p></div>
+                <div class="step-card reveal reveal-delay-1"><div class="step-number">2</div><h3 class="heading-sm">We Analyze and Price</h3><p>Within 24-48 hours, we respond with a clear scope, honest timeline, and transparent cost estimate. No hidden fees, no surprise add-ons later.</p></div>
+                <div class="step-card reveal reveal-delay-2"><div class="step-number">3</div><h3 class="heading-sm">We Build and Deliver</h3><p>Your project goes into development with regular progress updates. You give feedback mid-build, and receive a working tool — not a slide deck.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE BUILD -->
+    <section class="section-gray" id="what-we-build">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">What We Build</div>
+                <h2 class="heading-lg">Practical tools for <span class="text-accent">real clinics</span>.</h2>
+                <p class="body-md">Every project is custom. These are the kinds of things doctors come to us for.</p>
+            </div>
+            <div class="build-grid">
+                <div class="build-card reveal"><div class="build-card-icon"><i data-lucide="users" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Patient Management Systems</div><div class="build-card-desc">Track visits, history, and follow-ups in one place</div></div></div>
+                <div class="build-card reveal reveal-delay-1"><div class="build-card-icon"><i data-lucide="calendar-check" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Appointment Booking Tools</div><div class="build-card-desc">Online scheduling that fits your clinic hours</div></div></div>
+                <div class="build-card reveal reveal-delay-2"><div class="build-card-icon"><i data-lucide="brain" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">AI Diagnostic Assistants</div><div class="build-card-desc">Pattern recognition and decision support tools</div></div></div>
+                <div class="build-card reveal reveal-delay-1"><div class="build-card-icon"><i data-lucide="message-square" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Clinic Communication Platforms</div><div class="build-card-desc">WhatsApp-integrated or standalone messaging</div></div></div>
+                <div class="build-card reveal reveal-delay-2"><div class="build-card-icon"><i data-lucide="bar-chart-3" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Data Analytics Dashboards</div><div class="build-card-desc">Visual insights into your practice performance</div></div></div>
+                <div class="build-card reveal reveal-delay-3"><div class="build-card-icon"><i data-lucide="workflow" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Custom Automation Workflows</div><div class="build-card-desc">Eliminate repetitive tasks with smart automation</div></div></div>
+                <div class="build-card reveal reveal-delay-2"><div class="build-card-icon"><i data-lucide="file-text" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">E-Prescription Systems</div><div class="build-card-desc">Digital prescriptions with your template and format</div></div></div>
+                <div class="build-card reveal reveal-delay-3"><div class="build-card-icon"><i data-lucide="bell-ring" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Patient Follow-up Trackers</div><div class="build-card-desc">Automated reminders and follow-up scheduling</div></div></div>
+                <div class="build-card reveal reveal-delay-4"><div class="build-card-icon"><i data-lucide="graduation-cap" style="width:20px;height:20px;"></i></div><div><div class="build-card-title">Medical Education Tools</div><div class="build-card-desc">Quizzes, flashcards, and teaching aids</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COST CALCULATOR -->
+    <section class="section-dark" id="calculator">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label section-label-dark">Interactive Cost Estimator</div>
+                <h2 class="heading-lg text-inverse">Get a rough idea before<br>you even <span class="text-accent">talk to us</span>.</h2>
+                <p class="body-md" style="color:rgba(255,255,255,0.55);">Move the sliders to match your project. This is an estimate — actual pricing is shared after review.</p>
+            </div>
+            <div class="calc-wrapper reveal reveal-delay-1">
+                <div class="calc-card">
+                    <div class="calc-sliders">
+                        <div class="calc-slider-group">
+                            <label>Project Complexity <span class="calc-slider-value" id="complexVal">Medium</span></label>
+                            <input type="range" id="complexSlider" min="0" max="3" step="1" value="1">
+                        </div>
+                        <div class="calc-slider-group">
+                            <label>Number of Features <span class="calc-slider-value" id="featuresVal">3-5</span></label>
+                            <input type="range" id="featuresSlider" min="0" max="4" step="1" value="1">
+                        </div>
+                        <div class="calc-slider-group">
+                            <label>AI Integration <span class="calc-slider-value" id="aiVal">None</span></label>
+                            <input type="range" id="aiSlider" min="0" max="3" step="1" value="0">
+                        </div>
+                        <div class="calc-slider-group">
+                            <label>Third-Party Integrations <span class="calc-slider-value" id="integVal">None</span></label>
+                            <input type="range" id="integSlider" min="0" max="3" step="1" value="0">
+                        </div>
+                    </div>
+                    <div class="calc-result">
+                        <div class="calc-result-label">Estimated Cost Range</div>
+                        <div class="calc-result-range" id="calcRange"><span class="cur">₹</span>15,000 – 50,000</div>
+                        <div class="calc-result-time" id="calcTime">Estimated delivery: <strong>1-3 months</strong></div>
+                        <div class="calc-result-note">Final pricing shared after detailed project review via the form below.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-white" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">What Doctors Say</div>
+                <h2 class="heading-lg">Trusted by practitioners<br>across <span class="text-accent">specializations</span>.</h2>
+            </div>
+            <div class="testi-track reveal">
+                <div class="testi-card">
+                    <div class="testi-stars"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div>
+                    <p class="testi-text">"I didn't know what software I needed. I just told them my problem — tracking follow-ups for diabetic patients was a mess. They built a simple tracker that saved me 2 hours daily."</p>
+                    <div class="testi-author"><div class="testi-avatar">RS</div><div><div class="testi-name">Dr. Ramesh Sharma</div><div class="testi-role">General Physician, Jaipur</div></div></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div>
+                    <p class="testi-text">"A big IT company quoted me ₹8 lakhs for a patient management system. WiseAiTechs built exactly what I needed for ₹35,000. It runs on my phone and laptop."</p>
+                    <div class="testi-author"><div class="testi-avatar">PM</div><div><div class="testi-name">Dr.Sandeep</div><div class="testi-role">Homeopath, Kochi</div></div></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div>
+                    <p class="testi-text">"They built an appointment booking system that sends automatic WhatsApp reminders. My no-show rate dropped from 30% to 8%. Patients love it."</p>
+                    <div class="testi-author"><div class="testi-avatar">AK</div><div><div class="testi-name">Dr. Amit Kumar</div><div class="testi-role">Homeopath, Patna</div></div></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div>
+                    <p class="testi-text">"I wanted a simple tool to generate prescriptions in my own format. No hospital-level EMR, just my template on a screen. They delivered it perfectly."</p>
+                    <div class="testi-author"><div class="testi-avatar">SG</div><div><div class="testi-name">Dr. Ankit Patel </div><div class="testi-role">HR, Lucknow</div></div></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars"><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i><i data-lucide="star" style="width:16px;height:16px;fill:currentColor;"></i></div>
+                    <p class="testi-text">"What impressed me most is they didn't try to upsell. I asked for a simple billing tool. They built a simple billing tool. Not a CRM, not an ERP."</p>
+                    <div class="testi-author"><div class="testi-avatar">VR</div><div><div class="testi-name">Dr. Vikram Reddy</div><div class="testi-role">Homeopath Proff, Hyderabad</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="section-gray" id="cases">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-label">Recent Projects</div>
+                <h2 class="heading-lg">Built for real doctors.<br>Used in <span class="text-accent">real clinics</span>.</h2>
+                <p class="body-md">Here are some of the tools we've recently delivered. Each one started with a simple conversation.</p>
+            </div>
+            <div class="case-grid">
+                <div class="case-card reveal">
+                    <img src="https://picsum.photos/seed/patient-mgmt-wat/600/400.jpg" alt="Patient Management System" class="case-img" loading="lazy">
+                    <div class="case-body">
+                        <span class="case-tag">Patient Management</span>
+                        <h3 class="case-title">Patient History Tracker for General Physician</h3>
+                        <p class="case-desc">A single-doctor clinic needed a simple system to track patient visits, prescriptions, and follow-up dates without hospital EMR complexity.</p>
+                        <div class="case-meta"><span class="case-cost">₹28,000</span><span class="case-time">Delivered in 5 weeks</span></div>
+                    </div>
+                </div>
+                <div class="case-card reveal reveal-delay-1">
+                    <img src="https://picsum.photos/seed/dental-booking-wat/600/400.jpg" alt="Dental Appointment System" class="case-img" loading="lazy">
+                    <div class="case-body">
+                        <span class="case-tag">Appointment Booking</span>
+                        <h3 class="case-title">WhatsApp-Integrated Booking for Dental Clinic</h3>
+                        <p class="case-desc">A 3-chair dental clinic wanted patients to book via WhatsApp with automatic reminders and slot management.</p>
+                        <div class="case-meta"><span class="case-cost">₹22,000</span><span class="case-time">Delivered in 4 weeks</span></div>
+                    </div>
+                </div>
+                <div class="case-card reveal reveal-delay-2">
+                    <img src="https://picsum.photos/seed/derma-tracker-wat/600/400.jpg" alt="Dermatology Image Tracker" class="case-img" loading="lazy">
+                    <div class="case-body">
+                        <span class="case-tag">AI + Image Tracking</span>
+                        <h3 class="case-title">Skin Condition Progress Tracker with AI Analysis</h3>
+                        <p class="case-desc">A dermatologist needed before/after photo comparison with AI-assisted change detection for treatment documentation.</p>
+                        <div class="case-meta"><span class="case-cost">₹65,000</span><span class="case-time">Delivered in 8 weeks</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE FORM -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <div class="form-layout">
+                <div class="form-info reveal">
+                    <div class="section-label">Get Started</div>
+                    <h2 class="heading-lg">Tell us what you need.<br>We'll tell you what it <span class="text-accent">costs</span>.</h2>
+                    <p class="body-lg">Don't worry about technical terms. Just tell us your specialization, what frustrates you, and what you wish was easier.</p>
+                    <div class="form-benefits">
+                        <div class="form-benefit"><div class="form-benefit-icon"><i data-lucide="check" style="width:14px;height:14px;"></i></div><span>Response within 24-48 hours</span></div>
+                        <div class="form-benefit"><div class="form-benefit-icon"><i data-lucide="check" style="width:14px;height:14px;"></i></div><span>No obligation to proceed</span></div>
+                        <div class="form-benefit"><div class="form-benefit-icon"><i data-lucide="check" style="width:14px;height:14px;"></i></div><span>Transparent pricing, no hidden costs</span></div>
+                        <div class="form-benefit"><div class="form-benefit-icon"><i data-lucide="check" style="width:14px;height:14px;"></i></div><span>NDA available on request</span></div>
+                    </div>
+                    <div style="margin-top:32px;display:flex;flex-direction:column;gap:10px;">
+                        <a href="mailto:pilfilcadtools@gmail.com?subject=Project%20Query%20-%20WiseAiTechs" class="btn btn-outline-light btn-sm" style="width:100%;">
+                            <i data-lucide="mail" style="width:16px;height:16px;"></i>
+                            pilfilcadtools@gmail.com
+                        </a>
+                        <a href="https://wa.me/918547913751" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener" style="width:100%;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            +91 85479 13751
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1">
+                    <form id="projectForm" novalidate>
+                        <div class="form-section-title"><i data-lucide="stethoscope" style="width:16px;height:16px;"></i> Your Role</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Dr. Your Name" required>
+                                <div class="form-error" id="fullNameError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please enter your name</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="specialization">Your Specialization *</label>
+                                <select id="specialization" name="specialization" class="form-select" required>
+                                    <option value="" disabled selected>What kind of doctor?</option>
+                                    <option value="General Medicine">General Medicine</option>
+                                    <option value="Dentistry">Dentistry</option>
+                                    <option value="Dermatology">Dermatology</option>
+                                    <option value="Orthopedics">Orthopedics</option>
+                                    <option value="Pediatrics">Pediatrics</option>
+                                    <option value="Gynecology">Gynecology</option>
+                                    <option value="Ophthalmology">Ophthalmology</option>
+                                    <option value="ENT">ENT</option>
+                                    <option value="Cardiology">Cardiology</option>
+                                    <option value="Neurology">Neurology</option>
+                                    <option value="Psychiatry">Psychiatry</option>
+                                    <option value="Ayurveda">Ayurveda</option>
+                                    <option value="Homeopathy">Homeopathy</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="form-error" id="specializationError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please select your specialization</span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="clinicName">Clinic / Hospital Name *</label>
+                            <input type="text" id="clinicName" name="clinicName" class="form-input" placeholder="Your Clinic Name" required>
+                            <div class="form-error" id="clinicNameError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please enter your clinic name</span></div>
+                        </div>
+
+                        <div class="form-divider"></div>
+                        <div class="form-section-title"><i data-lucide="frown" style="width:16px;height:16px;"></i> What's Frustrating You?</div>
+                        <div class="pain-chips" id="painChips">
+                            <span class="pain-chip" data-pain="Managing patient records manually">Patient records are manual</span>
+                            <span class="pain-chip" data-pain="Patients missing appointments">Patients miss appointments</span>
+                            <span class="pain-chip" data-pain="Writing prescriptions takes too long">Prescriptions take too long</span>
+                            <span class="pain-chip" data-pain="No follow-up tracking system">No follow-up tracking</span>
+                            <span class="pain-chip" data-pain="Difficulty communicating with patients">Communication is hard</span>
+                            <span class="pain-chip" data-pain="Billing and revenue tracking is messy">Billing is messy</span>
+                            <span class="pain-chip" data-pain="Need AI help for diagnosis">Need AI for diagnosis</span>
+                            <span class="pain-chip" data-pain="Teaching/education tool needed">Need education tools</span>
+                        </div>
+                        <input type="hidden" id="painPoints" name="painPoints" value="">
+
+                        <div class="form-divider"></div>
+                        <div class="form-section-title"><i data-lucide="folder-open" style="width:16px;height:16px;"></i> Tell Us More</div>
+                        <div class="form-group">
+                            <label class="form-label" for="projectDesc">Describe Your Problem or Idea *</label>
+                            <textarea id="projectDesc" name="projectDesc" class="form-textarea" placeholder="In your own words, what do you wish was easier? What takes up too much of your time? Don't worry about technical language." required></textarea>
+                            <div class="form-error" id="projectDescError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please describe your problem (at least 20 characters)</span></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="timeline">When Do You Need It? *</label>
+                                <select id="timeline" name="timeline" class="form-select" required>
+                                    <option value="" disabled selected>How soon?</option>
+                                    <option value="Within 1 Month (Urgent)">Within 1 month (Urgent)</option>
+                                    <option value="1-2 Months">1-2 months</option>
+                                    <option value="2-3 Months">2-3 months</option>
+                                    <option value="3-6 Months">3-6 months</option>
+                                    <option value="Flexible">Flexible, no rush</option>
+                                </select>
+                                <div class="form-error" id="timelineError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please select a timeline</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="budgetRange">Expected Budget Range *</label>
+                                <select id="budgetRange" name="budgetRange" class="form-select" required>
+                                    <option value="" disabled selected>Select budget range</option>
+                                    <option value="₹5,000 - ₹15,000">₹5,000 – ₹15,000</option>
+                                    <option value="₹15,000 - ₹30,000">₹15,000 – ₹30,000</option>
+                                    <option value="₹30,000 - ₹50,000">₹30,000 – ₹50,000</option>
+                                    <option value="₹50,000 - ₹1,00,000">₹50,000 – ₹1,00,000</option>
+                                    <option value="₹1,00,000+">₹1,00,000+</option>
+                                    <option value="Not Sure">Not sure — let me know</option>
+                                </select>
+                                <div class="form-error" id="budgetRangeError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please select a budget range</span></div>
+                            </div>
+                        </div>
+
+                        <div class="form-divider"></div>
+                        <div class="form-section-title"><i data-lucide="phone" style="width:16px;height:16px;"></i> How Should We Reach You?</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone / WhatsApp *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                                <div class="form-error" id="phoneError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please enter a valid phone number</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="you@clinic.com" required>
+                                <div class="form-error" id="emailError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please enter a valid email</span></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="reference">Reference or Example <span class="optional">(optional)</span></label>
+                            <input type="text" id="reference" name="reference" class="form-input" placeholder="Any app or tool that's similar to what you want">
+                        </div>
+
+                        <div class="form-submit-area">
+                            <button type="submit" class="btn btn-red btn-lg" id="submitBtn">
+                                <span id="submitText">Submit Your Project</span>
+                                <i data-lucide="send" style="width:18px;height:18px;" id="submitIcon"></i>
+                                <span id="submitSpinner" style="display:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="animation:spin 1s linear infinite;"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="31.4 31.4" stroke-dashoffset="10"/></svg></span>
+                            </button>
+                            <p class="form-privacy">Your information is kept confidential. We never share your data.</p>
+                        </div>
+                    </form>
+
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon"><i data-lucide="check-circle-2" style="width:36px;height:36px;"></i></div>
+                        <h3 class="heading-md">Project Submitted Successfully</h3>
+                        <p>Thank you, Doctor. We've received your details. Our team will review and respond within 24-48 hours with a scope and cost estimate.</p>
+                        <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <button class="btn btn-outline-light btn-sm" onclick="resetForm()">Submit Another Project</button>
+                            <a href="https://wa.me/918547913751" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">Follow Up on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2 class="display-lg reveal">Your clinic deserves software<br>that <span class="text-accent">understands</span> it.</h2>
+            <p class="body-lg reveal reveal-delay-1">Stop adapting to generic tools. Start building what actually fits your practice.</p>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;">
+                <a href="#form" class="btn btn-red btn-lg reveal reveal-delay-2">Let's Build It Together <i data-lucide="arrow-right" style="width:18px;height:18px;"></i></a>
+                <a href="https://wa.me/918547913751" class="btn btn-whatsapp btn-lg reveal reveal-delay-3" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (COMPLETE) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="https://z-cdn-media.chatglm.cn/files/14fa7e12-535c-4da4-a463-5941a38ffbe2.png?auth_key=1883273646-6d2085e5e3eb46d8ba79e595098f8ff0-0-360b010d2ecc7d4201868afd03a9ba8b" alt="WiseAiTechs" style="height:48px;width:auto;">
+                    <p>Custom software development for doctors and clinics. Practical AI-powered tools built specifically for your practice.</p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/wiseaitechs/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram" style="width:18px;height:18px;"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61572366182699" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook"><i data-lucide="facebook" style="width:18px;height:18px;"></i></a>
+                        <a href="https://wa.me/918547913751" class="footer-social" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+                        <a href="mailto:pilfilcadtools@gmail.com" class="footer-social" aria-label="Email"><i data-lucide="mail" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#why-us">Why Us</a></li>
+                        <li><a href="#find-tool">Find Your Tool</a></li>
+                        <li><a href="#how-it-works">Process</a></li>
+                        <li><a href="#calculator">Pricing</a></li>
+                        <li><a href="#cases">Case Studies</a></li>
+                        <li><a href="#form">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#form">Patient Management</a></li>
+                        <li><a href="#form">AI Tools</a></li>
+                        <li><a href="#form">Automation</a></li>
+                        <li><a href="#form">Dashboards</a></li>
+                        <li><a href="#form">Custom Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:pilfilcadtools@gmail.com">pilfilcadtools@gmail.com</a></li>
+                        <li><a href="https://wa.me/918547913751" target="_blank" rel="noopener">+91 85479 13751</a></li>
+                        <li><a href="https://www.instagram.com/wiseaitechs/" target="_blank" rel="noopener">@wiseaitechs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>2025 WiseAiTechs. All rights reserved.</p>
+                <p>Built for medicos, by people who understand medicos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING MOBILE CTA -->
+    <a href="https://wa.me/918547913751" class="btn btn-red btn-sm" id="floatingCTA" target="_blank" rel="noopener">
+        <i data-lucide="message-circle" style="width:16px;height:16px;"></i>
+        Submit Project
+    </a>
+
+    <script>
+    // =============================================
+    // INIT
+    // =============================================
+    lucide.createIcons();
+
+    const GOOGLE_APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+    // =============================================
+    // NEURAL NETWORK CANVAS ANIMATION
+    // =============================================
+    (function() {
+        const canvas = document.getElementById('neuralCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let nodes = [];
+        let w, h;
+        const NODE_COUNT = 40;
+        const MAX_DIST = 180;
+
+        function resize() {
+            w = canvas.width = canvas.offsetWidth;
+            h = canvas.height = canvas.offsetHeight;
+        }
+
+        function initNodes() {
+            nodes = [];
+            for (let i = 0; i < NODE_COUNT; i++) {
+                nodes.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.4,
+                    vy: (Math.random() - 0.5) * 0.4,
+                    r: Math.random() * 2 + 1.5
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+
+            // Draw connections
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < MAX_DIST) {
+                        const alpha = (1 - dist / MAX_DIST) * 0.12;
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = 'rgba(59,130,246,' + alpha + ')';
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Draw and update nodes
+            for (const node of nodes) {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(59,130,246,0.25)';
+                ctx.fill();
+
+                node.x += node.vx;
+                node.y += node.vy;
+
+                if (node.x < 0 || node.x > w) node.vx *= -1;
+                if (node.y < 0 || node.y > h) node.vy *= -1;
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        resize();
+        initNodes();
+        draw();
+        window.addEventListener('resize', () => { resize(); initNodes(); });
+    })();
+
+    // =============================================
+    // MOBILE NAV
+    // =============================================
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileDrawer.classList.toggle('open', menuOpen);
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menuOpen = false;
+            mobileDrawer.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // =============================================
+    // SCROLL REVEAL
+    // =============================================
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // =============================================
+    // FLOATING CTA
+    // =============================================
+    const floatingCTA = document.getElementById('floatingCTA');
+    const formSection = document.getElementById('form');
+    if (floatingCTA && formSection) {
+        const fObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                floatingCTA.style.opacity = e.isIntersecting ? '0' : '1';
+                floatingCTA.style.pointerEvents = e.isIntersecting ? 'none' : 'all';
+            });
+        }, { threshold: 0.2 });
+        fObs.observe(formSection);
+        floatingCTA.style.transition = 'opacity 0.3s ease';
+    }
+
+    // =============================================
+    // ROLE DISCOVERY SYSTEM
+    // =============================================
+    const roleData = {
+        general: {
+            name: 'General Medicine',
+            sub: 'Tools commonly built for general physicians',
+            tools: [
+                { title: 'Patient History Tracker', desc: 'Track visits, vitals, prescriptions, and follow-up dates per patient', cost: '₹15,000 – 35,000' },
+                { title: 'Prescription Generator', desc: 'Create digital prescriptions in your format, print or share via WhatsApp', cost: '₹8,000 – 20,000' },
+                { title: 'Follow-up Reminder System', desc: 'Automatic SMS/WhatsApp reminders for patient follow-ups', cost: '₹10,000 – 25,000' },
+                { title: 'Clinic Revenue Dashboard', desc: 'Daily/weekly/monthly earnings, patient count, and treatment breakdown', cost: '₹12,000 – 30,000' },
+                { title: 'Lab Report Organizer', desc: 'Categorize and retrieve patient lab reports by date and type', cost: '₹10,000 – 25,000' },
+                { title: 'Chronic Disease Monitor', desc: 'Track diabetes, hypertension, thyroid patients with trend analysis', cost: '₹25,000 – 50,000' }
+            ]
+        },
+        dental: {
+            name: 'Dentist',
+            sub: 'Tools commonly built for dental practices',
+            tools: [
+                { title: 'Appointment Booking with WhatsApp', desc: 'Online slot booking with automatic WhatsApp confirmations and reminders', cost: '₹15,000 – 30,000' },
+                { title: 'Dental Treatment Tracker', desc: 'Track procedures per tooth, pending work, and treatment completion status', cost: '₹20,000 – 40,000' },
+                { title: 'Before/After Photo Gallery', desc: 'Patient photo records with date stamps for treatment documentation', cost: '₹8,000 – 20,000' },
+                { title: 'Dental Inventory Manager', desc: 'Track consumables, materials, and equipment restocking needs', cost: '₹12,000 – 25,000' }
+            ]
+        },
+        derma: {
+            name: 'Dermatologist',
+            sub: 'Tools commonly built for dermatology practices',
+            tools: [
+                { title: 'Skin Condition Photo Tracker', desc: 'Before/after photos with AI-assisted change detection and comparison', cost: '₹30,000 – 65,000' },
+                { title: 'Treatment Protocol Library', desc: 'Searchable database of your treatment protocols by condition', cost: '₹10,000 – 25,000' },
+                { title: 'Patient Consent & Record System', desc: 'Digital consent forms, photo records, and treatment history', cost: '₹15,000 – 35,000' },
+                { title: 'Product Recommendation Engine', desc: 'Suggest skincare products based on patient condition and history', cost: '₹25,000 – 50,000' }
+            ]
+        },
+        ortho: {
+            name: 'Orthopedic',
+            sub: 'Tools commonly built for orthopedic practices',
+            tools: [
+                { title: 'X-Ray/Imaging Organizer', desc: 'Categorize and retrieve X-rays and MRI reports by patient and date', cost: '₹12,000 – 30,000' },
+                { title: 'Surgery Scheduling System', desc: 'Manage OT slots, pre-op checklists, and post-op follow-up schedules', cost: '₹20,000 – 45,000' },
+                { title: 'Rehabilitation Progress Tracker', desc: 'Track physiotherapy milestones and recovery progress per patient', cost: '₹15,000 – 35,000' }
+            ]
+        },
+        pediatric: {
+            name: 'Pediatrician',
+            sub: 'Tools commonly built for pediatric practices',
+            tools: [
+                { title: 'Vaccination Scheduler', desc: 'Track due vaccines per child, send reminders to parents automatically', cost: '₹15,000 – 30,000' },
+                { title: 'Growth Chart Tracker', desc: 'Plot weight, height, head circumference against WHO standards', cost: '₹12,000 – 25,000' },
+                { title: 'Parent Communication Portal', desc: 'Share visit summaries, prescriptions, and reminders via WhatsApp', cost: '₹10,000 – 25,000' },
+                { title: 'Child Health Record System', desc: 'Complete digital health record from birth through childhood', cost: '₹20,000 – 40,000' }
+            ]
+        },
+        gynac: {
+            name: 'Gynecologist',
+            sub: 'Tools commonly built for gynecology practices',
+            tools: [
+                { title: 'Pregnancy Tracking System', desc: 'Week-by-week pregnancy monitoring with due date calculator', cost: '₹15,000 – 35,000' },
+                { title: 'Menstrual Cycle Logger', desc: 'Patient self-reporting tool for cycle tracking and pattern analysis', cost: '₹10,000 – 25,000' },
+                { title: 'IVF/Treatment Cycle Manager', desc: 'Track treatment cycles, medication schedules, and test results', cost: '₹25,000 – 50,000' }
+            ]
+        },
+        ophthal: {
+            name: 'Ophthalmologist',
+            sub: 'Tools commonly built for ophthalmology practices',
+            tools: [
+                { title: 'Vision Test Record System', desc: 'Store and track visual acuity, refraction, and prescription changes', cost: '₹12,000 – 28,000' },
+                { title: 'Eye Scan/Image Organizer', desc: 'Categorize fundus photos, OCT reports, and visual field tests', cost: '₹15,000 – 35,000' },
+                { title: 'Post-Op Follow-up Scheduler', desc: 'Track cataract, LASIK, and other surgical follow-ups', cost: '₹10,000 – 22,000' }
+            ]
+        },
+        ent: {
+            name: 'ENT',
+            sub: 'Tools commonly built for ENT practices',
+            tools: [
+                { title: 'Allergy Tracking System', desc: 'Record allergy test results and track trigger patterns over time', cost: '₹12,000 – 25,000' },
+                { title: 'Hearing Assessment Logger', desc: 'Store audiometry results and track hearing changes per patient', cost: '₹10,000 – 22,000' },
+                { title: 'Surgery Queue Manager', desc: 'Manage tonsillectomy, septoplasty, and other procedure scheduling', cost: '₹15,000 – 30,000' }
+            ]
+        },
+        cardio: {
+            name: 'Cardiologist',
+            sub: 'Tools commonly built for cardiology practices',
+            tools: [
+                { title: 'ECG Report Manager', desc: 'Organize, store, and retrieve ECG reports with date-based search', cost: '₹15,000 – 30,000' },
+                { title: 'Cardiac Risk Score Calculator', desc: 'AI-assisted risk scoring based on patient vitals and history', cost: '₹30,000 – 60,000' },
+                { title: 'Medication Adherence Tracker', desc: 'Monitor if patients are taking cardiac medications on schedule', cost: '₹12,000 – 28,000' }
+            ]
+        },
+        neuro: {
+            name: 'Neurologist',
+            sub: 'Tools commonly built for neurology practices',
+            tools: [
+                { title: 'Seizure/Epilepsy Log', desc: 'Patient-reported seizure logging with pattern and trigger analysis', cost: '₹15,000 – 35,000' },
+                { title: 'Neuro Imaging Organizer', desc: 'Manage MRI, CT, and EEG reports with patient-linked search', cost: '₹15,000 – 30,000' },
+                { title: 'Cognitive Assessment Tool', desc: 'Digital mini-mental state exams and cognitive tracking', cost: '₹25,000 – 50,000' }
+            ]
+        },
+        psych: {
+            name: 'Psychiatrist',
+            sub: 'Tools commonly built for psychiatry practices',
+            tools: [
+                { title: 'Mood Tracking Journal', desc: 'Patient daily mood logging with AI-detected patterns and alerts', cost: '₹20,000 – 45,000' },
+                { title: 'Medication Management System', desc: 'Track psychotropic medications, dosages, and side effects', cost: '₹15,000 – 30,000' },
+                { title: 'Session Notes & Progress Tracker', desc: 'Structured session documentation with treatment progress metrics', cost: '₹12,000 – 28,000' }
+            ]
+        },
+        ayurveda: {
+            name: 'Ayurveda / Homeopathy',
+            sub: 'Tools commonly built for alternative medicine practices',
+            tools: [
+                { title: 'Prakriti Assessment Tool', desc: 'Digital dosha assessment questionnaire with personalized recommendations', cost: '₹10,000 – 25,000' },
+                { title: 'Herbal Remedy Library', desc: 'Searchable database of remedies by condition with dosage guidance', cost: '₹8,000 – 20,000' },
+                { title: 'Patient Treatment Timeline', desc: 'Visual timeline showing treatment phases and patient response', cost: '₹12,000 – 28,000' }
+            ]
+        }
+    };
+
+    const roleGrid = document.getElementById('roleGrid');
+    const roleResults = document.getElementById('roleResults');
+    const roleResultsTitle = document.getElementById('roleResultsTitle');
+    const roleResultsSub = document.getElementById('roleResultsSub');
+    const roleResultsGrid = document.getElementById('roleResultsGrid');
+    let activeRole = null;
+
+    roleGrid.addEventListener('click', (e) => {
+        const chip = e.target.closest('.role-chip');
+        if (!chip) return;
+        const role = chip.dataset.role;
+
+        document.querySelectorAll('.role-chip').forEach(c => c.classList.remove('active'));
+
+        if (activeRole === role) {
+            activeRole = null;
+            roleResults.classList.remove('open');
+            return;
+        }
+
+        chip.classList.add('active');
+        activeRole = role;
+
+        const data = roleData[role];
+        if (!data) return;
+
+        roleResultsTitle.textContent = 'Tools for ' + data.name;
+        roleResultsSub.textContent = data.sub;
+
+        roleResultsGrid.innerHTML = data.tools.map(t => `
+            <div class="role-tool-card">
+                <div class="role-tool-icon"><i data-lucide="cpu" style="width:18px;height:18px;"></i></div>
+                <div>
+                    <div class="role-tool-title">${t.title}</div>
+                    <div class="role-tool-desc">${t.desc}</div>
+                    <div class="role-tool-cost">${t.cost}</div>
+                </div>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+        roleResults.classList.add('open');
+
+        setTimeout(() => {
+            roleResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+    });
+
+    // =============================================
+    // COST CALCULATOR
+    // =============================================
+    const complexLabels = ['Simple', 'Medium', 'Complex', 'Very Complex'];
+    const featuresLabels = ['1-2', '3-5', '6-8', '9-12', '13+'];
+    const aiLabels = ['None', 'Basic', 'Moderate', 'Advanced'];
+    const integLabels = ['None', '1 Integration', '2-3 Integrations', '4+ Integrations'];
+
+    const complexSlider = document.getElementById('complexSlider');
+    const featuresSlider = document.getElementById('featuresSlider');
+    const aiSlider = document.getElementById('aiSlider');
+    const integSlider = document.getElementById('integSlider');
+
+    function updateCalc() {
+        const c = parseInt(complexSlider.value);
+        const f = parseInt(featuresSlider.value);
+        const a = parseInt(aiSlider.value);
+        const ig = parseInt(integSlider.value);
+
+        document.getElementById('complexVal').textContent = complexLabels[c];
+        document.getElementById('featuresVal').textContent = featuresLabels[f];
+        document.getElementById('aiVal').textContent = aiLabels[a];
+        document.getElementById('integVal').textContent = integLabels[ig];
+
+        // Base: 5000, complexity adds 0/8000/20000/40000
+        // Features add 0/5000/12000/22000/35000
+        // AI adds 0/8000/20000/40000
+        // Integrations add 0/5000/12000/22000
+        const baseCost = 5000;
+        const complexCost = [0, 8000, 20000, 40000][c];
+        const featureCost = [0, 5000, 12000, 22000, 35000][f];
+        const aiCost = [0, 8000, 20000, 40000][a];
+        const integCost = [0, 5000, 12000, 22000][ig];
+
+        const total = baseCost + complexCost + featureCost + aiCost + integCost;
+        const low = Math.round(total * 0.8);
+        const high = Math.round(total * 1.3);
+
+        function formatNum(n) {
+            return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        document.getElementById('calcRange').innerHTML = '<span class="cur">₹</span>' + formatNum(low) + ' – ' + formatNum(high);
+
+        // Timeline: based on total
+        let time = '';
+        if (total <= 15000) time = '<strong>1 month</strong>';
+        else if (total <= 35000) time = '<strong>1-2 months</strong>';
+        else if (total <= 60000) time = '<strong>2-3 months</strong>';
+        else if (total <= 100000) time = '<strong>3-4 months</strong>';
+        else time = '<strong>4-6 months</strong>';
+
+        document.getElementById('calcTime').innerHTML = 'Estimated delivery: ' + time;
+    }
+
+    [complexSlider, featuresSlider, aiSlider, integSlider].forEach(s => {
+        s.addEventListener('input', updateCalc);
+    });
+    updateCalc();
+
+    // =============================================
+    // PAIN CHIPS
+    // =============================================
+    const painChips = document.querySelectorAll('.pain-chip');
+    const painPointsInput = document.getElementById('painPoints');
+
+    painChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chip.classList.toggle('active');
+            const selected = [];
+            document.querySelectorAll('.pain-chip.active').forEach(c => selected.push(c.dataset.pain));
+            painPointsInput.value = selected.join(' | ');
+        });
+    });
+
+    // =============================================
+    // FORM VALIDATION & SUBMISSION
+    // =============================================
+    const form = document.getElementById('projectForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function showError(fieldId, show) {
+        const input = document.getElementById(fieldId);
+        const error = document.getElementById(fieldId + 'Error');
+        if (show) { input.classList.add('error'); error.classList.add('visible'); }
+        else { input.classList.remove('error'); error.classList.remove('visible'); }
+    }
+
+    ['fullName', 'clinicName', 'specialization', 'phone', 'email', 'projectDesc', 'timeline', 'budgetRange'].forEach(id => {
+        const el = document.getElementById(id);
+        el.addEventListener('input', () => showError(id, false));
+        el.addEventListener('change', () => showError(id, false));
+    });
+
+    function validateForm() {
+        let valid = true;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\+]?[\d\s\-]{8,15}$/;
+
+        if (!document.getElementById('fullName').value.trim()) { showError('fullName', true); valid = false; }
+        if (!document.getElementById('clinicName').value.trim()) { showError('clinicName', true); valid = false; }
+        if (!document.getElementById('specialization').value) { showError('specialization', true); valid = false; }
+        const phone = document.getElementById('phone').value.trim();
+        if (!phone || !phoneRegex.test(phone)) { showError('phone', true); valid = false; }
+        const email = document.getElementById('email').value.trim();
+        if (!email || !emailRegex.test(email)) { showError('email', true); valid = false; }
+        const desc = document.getElementById('projectDesc').value.trim();
+        if (!desc || desc.length < 20) { showError('projectDesc', true); valid = false; }
+        if (!document.getElementById('timeline').value) { showError('timeline', true); valid = false; }
+        if (!document.getElementById('budgetRange').value) { showError('budgetRange', true); valid = false; }
+        return valid;
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!validateForm()) {
+            const firstError = form.querySelector('.error');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
+
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = document.getElementById('submitText');
+        const submitIcon = document.getElementById('submitIcon');
+        const submitSpinner = document.getElementById('submitSpinner');
+
+        submitBtn.disabled = true;
+        submitText.textContent = 'Submitting...';
+        submitIcon.style.display = 'none';
+        submitSpinner.style.display = 'inline-flex';
+
+        const formData = new FormData(form);
+
+        try {
+            if (GOOGLE_APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                await fetch(GOOGLE_APPS_SCRIPT_URL, { method: 'POST', body: formData });
+            }
+            form.style.display = 'none';
+            formSuccess.classList.add('visible');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (err) {
+            form.style.display = 'none';
+            formSuccess.classList.add('visible');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+
+    function resetForm() {
+        form.reset();
+        form.style.display = 'block';
+        formSuccess.classList.remove('visible');
+        painChips.forEach(c => c.classList.remove('active'));
+        document.getElementById('painPoints').value = '';
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = false;
+        document.getElementById('submitText').textContent = 'Submit Your Project';
+        document.getElementById('submitIcon').style.display = '';
+        document.getElementById('submitSpinner').style.display = 'none';
+        form.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+        form.querySelectorAll('.form-error').forEach(el => el.classList.remove('visible'));
+        window.scrollTo({ top: formSection.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    // =============================================
+    // NAV SCROLL EFFECT
+    // =============================================
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+        nav.style.background = window.scrollY > 100 ? 'rgba(16,24,40,0.97)' : 'rgba(16,24,40,0.92)';
+    }, { passive: true });
+    </script>
+</body>
+</html>
