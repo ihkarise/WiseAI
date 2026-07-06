@@ -348,6 +348,38 @@
             *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
             .reveal { opacity: 1; transform: none; }
         }
+        /* Universal Responsive Fix */
+        html{
+            -webkit-text-size-adjust:100%;
+            text-size-adjust:100%;
+        }
+        
+        *,*::before,*::after{
+            max-width:100%;
+        }
+        
+        body{
+            overflow-x:hidden;
+        }
+        
+        .container{
+            width:min(100% - 32px,1280px);
+            margin-inline:auto;
+            padding-inline:clamp(16px,3vw,24px);
+        }
+        
+        img,
+        video,
+        canvas,
+        iframe{
+            max-width:100%;
+            height:auto;
+            display:block;
+        }
+        
+        section{
+            padding-block:clamp(50px,8vw,96px);
+        }
     </style>
 </head>
 <body>
