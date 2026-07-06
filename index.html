@@ -715,6 +715,7 @@
                                 <label class="form-label" for="specialization">Your Specialization *</label>
                                 <select id="specialization" name="specialization" class="form-select" required>
                                     <option value="" disabled selected>What kind of doctor?</option>
+                                    <option value="Homeopathy">Homeopathy</option>
                                     <option value="General Medicine">General Medicine</option>
                                     <option value="Dentistry">Dentistry</option>
                                     <option value="Dermatology">Dermatology</option>
@@ -727,7 +728,6 @@
                                     <option value="Neurology">Neurology</option>
                                     <option value="Psychiatry">Psychiatry</option>
                                     <option value="Ayurveda">Ayurveda</option>
-                                    <option value="Homeopathy">Homeopathy</option>
                                     <option value="Other">Other</option>
                                 </select>
                                 <div class="form-error" id="specializationError"><i data-lucide="alert-circle" style="width:12px;height:12px;"></i><span>Please select your specialization</span></div>
@@ -1145,11 +1145,11 @@
                 { title: 'Session Notes & Progress Tracker', desc: 'Structured session documentation with treatment progress metrics', cost: '₹12,000 – 28,000' }
             ]
         },
-        ayurveda: {
-            name: 'Ayurveda / Homeopathy',
+        homeopathy: {
+            name: 'Homeopathy',
             sub: 'Tools commonly built for alternative medicine practices',
             tools: [
-                { title: 'Prakriti Assessment Tool', desc: 'Digital dosha assessment questionnaire with personalized recommendations', cost: '₹10,000 – 25,000' },
+                { title: 'Constutional Assessment Tool', desc: 'Digital assessment questionnaire with personalized recommendations', cost: '₹10,000 – 25,000' },
                 { title: 'Herbal Remedy Library', desc: 'Searchable database of remedies by condition with dosage guidance', cost: '₹8,000 – 20,000' },
                 { title: 'Patient Treatment Timeline', desc: 'Visual timeline showing treatment phases and patient response', cost: '₹12,000 – 28,000' }
             ]
